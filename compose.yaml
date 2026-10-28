@@ -1,0 +1,15 @@
+services:
+  dungeon-api:
+    build:
+      context: .
+      dockerfile: Containerfile
+    ports:
+      - "${DUNGEON_PORT:-8000}:8000"
+    environment:
+      IMAGE_STORAGE_PATH: /data/images
+      IMAGE_BASE_URI: /images/
+      CAMPAIGN_PATH: /data/campaign.json
+    volumes:
+      # Mount the directory so atomic campaign-file replacement works.
+      - ${DUNGEON_DATA_DIR:-./local_data}:/data:Z
+    restart: unless-stopped
