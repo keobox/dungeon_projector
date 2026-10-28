@@ -1,0 +1,28 @@
+[project]
+name = "dungeon-projector"
+version = "0.1.0"
+description = "A local campaign builder and realtime image projector for tabletop games"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.30,<1",
+    "websockets>=13,<17",
+    "pydantic-settings>=2.6,<3",
+    "python-multipart>=0.0.18,<1",
+    "pillow>=11,<13",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "httpx>=0.27,<1",
+    "playwright>=1.48,<2",
+    "ruff>=0.14,<1",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Director · Dungeon Projector</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <script type="module" src="/static/js/director.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/director"><span class="brand-mark" aria-hidden="true">◈</span> Dungeon Projector</a>
+    <nav aria-label="Views"><a href="/builder">Builder</a><a aria-current="page" href="/director">Director</a><a href="/projector" target="_blank" rel="noopener">Projector ↗</a></nav>
+  </header>
+  <main class="mx-auto max-w-5xl px-5 py-8 sm:px-8 sm:py-12">
+    <p class="eyebrow">At the table</p><h1>Set the scene.</h1>
+    <p class="muted mt-3">Open the projector on your display, then choose an image below.</p>
+    <div class="director-controls flex flex-wrap items-center justify-between gap-4 my-8">
+      <p id="connection" class="connection" role="status">Connecting…</p>
+      <button id="blackout" class="blackout" type="button" disabled>◼ Blackout</button>
+    </div>
+    <p id="status" class="muted mb-6" role="status" aria-live="polite">Loading campaign…</p>
+    <div id="campaign" class="space-y-8"></div>
+  </main>
+</body>
+</html>

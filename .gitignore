@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+node_modules/
+data/*
+!data/.gitkeep
+local_data/
+local_images/
+test-results/
+playwright-report/
+prompt.txt

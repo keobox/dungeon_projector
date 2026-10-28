@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Builder · Dungeon Projector</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <script type="module" src="/static/js/builder.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/director"><span class="brand-mark" aria-hidden="true">◈</span> Dungeon Projector</a>
+    <nav aria-label="Views"><a aria-current="page" href="/builder">Builder</a><a href="/director">Director</a><a href="/projector" target="_blank" rel="noopener">Projector ↗</a></nav>
+  </header>
+  <main class="mx-auto max-w-5xl px-5 py-8 sm:px-8 sm:py-12">
+    <div class="flex flex-wrap items-end justify-between gap-5 mb-8">
+      <div><p class="eyebrow">Prepare the adventure</p><h1>Campaign builder</h1><p class="muted mt-3">Create places, add images, and set the scene.</p></div>
+      <button id="save" class="primary" type="submit" form="campaign-form" disabled>Save campaign</button>
+    </div>
+    <p id="status" class="notice mb-6" role="status" aria-live="polite">Loading campaign…</p>
+    <form id="campaign-form">
+      <fieldset id="editor" disabled>
+        <legend class="sr-only">Campaign</legend>
+        <div id="dungeons" class="space-y-6"></div>
+        <button id="add-dungeon" class="secondary mt-6" type="button">+ Add dungeon</button>
+      </fieldset>
+    </form>
+    <p class="muted text-sm mt-8">Save your changes, then refresh the director to load the updated campaign.</p>
+  </main>
+
+  <template id="dungeon-template">
+    <section class="panel dungeon">
+      <div class="flex flex-wrap items-end gap-4">
+        <label class="grow">Dungeon name<input class="dungeon-name" required placeholder="The Forgotten Keep"></label>
+        <button class="delete-dungeon danger" type="button">Delete dungeon</button>
+      </div>
+      <div class="rooms space-y-4 mt-6"></div>
+      <button class="add-room secondary mt-5" type="button">+ Add room</button>
+    </section>
+  </template>
+  <template id="room-template">
+    <section class="room">
+      <div class="flex flex-wrap items-end gap-4">
+        <label class="grow">Room name<input class="room-name" required placeholder="Entrance Hall"></label>
+        <button class="delete-room danger" type="button">Delete room</button>
+      </div>
+      <div class="buttons space-y-4 mt-5"></div>
+      <button class="add-button secondary mt-4" type="button">+ Add image button</button>
+    </section>
+  </template>
+  <template id="button-template">
+    <section class="image-button">
+      <div class="grid gap-5 sm:grid-cols-[1fr_120px]">
+        <div class="space-y-4 min-w-0">
+          <label>Button label<input class="button-label" required placeholder="Show entrance"></label>
+          <label>Image source<select class="source"><option value="upload">Upload local image</option><option value="external">Provide external URL</option></select></label>
+          <label class="upload-field">Image file <span class="muted font-normal">PNG, JPEG, GIF, WebP · up to 20 MiB</span><input class="file" type="file" accept="image/png,image/jpeg,image/gif,image/webp"></label>
+          <label class="external-field" hidden>External image URL<input class="url" type="url" placeholder="https://…/image.jpg"></label>
+          <p class="image-uri muted text-xs break-all"></p>
+        </div>
+        <div class="flex flex-col items-start gap-3">
+          <img class="preview" alt="Image preview" hidden>
+          <p class="preview-error muted text-xs" hidden>Image could not load. Check the file or URL.</p>
+          <button class="delete-button danger mt-auto" type="button">Delete button</button>
+        </div>
+      </div>
+    </section>
+  </template>
+</body>
+</html>
