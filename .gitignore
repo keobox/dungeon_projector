@@ -11,3 +11,5 @@ local_images/
 test-results/
 playwright-report/
 prompt.txt
+codex-resume.txt
+claude-resume.txt
